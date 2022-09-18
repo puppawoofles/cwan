@@ -1,7 +1,39 @@
 <!doctype html>
 <html>
+
 <head>
-	<title>Dump</title>
+	<meta charset="UTF-8">
+	<title>Charts with All Numbers</title>
+
+	<link rel="stylesheet" href="ob.css" />
+	<style type="text/css"></style>
+	<!-- Load code at the top -->
+	<script src="woof/loader.js"></script>
 </head>
-<body></body>
+
+<body>	
+	<!-- Trigger code at the bottom -->
+	<script>
+
+	require("woof/woof").then(function() {
+		return Promise.all([
+			requireAll(
+				// Base libs.
+				"woof/noise"
+			),
+			loadDataFrames({
+				// System templates.
+				"woof": "data_frames/woof_templates.html",
+			})
+		]);
+	}).then(function() {
+	  // Actual initialization junk.
+	  
+	  
+	});
+	
+	</script>
+
+</body>
+
 </html>
