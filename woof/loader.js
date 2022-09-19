@@ -10,7 +10,7 @@ woofLoadThing = function(element, parent, onLoad) {
 
 window.____loaded = {};
 
-require = function(key) {
+require = async function(key) {
     return new Promise(function(resolve, reject) {
         var file = key + ".js";
         var found = window.document.querySelector("script[src='" + file + "']");
@@ -34,7 +34,7 @@ require = function(key) {
     });
 }
 
-requireAll = function(...keys) {
+requireAll = async function(...keys) {
     var toLoad = Array.from(keys);
     var loadFn = function() {
         if (toLoad.length == 0) return;
@@ -44,7 +44,7 @@ requireAll = function(...keys) {
     return Promise.resolve(loadFn());
 };
 
-loadDataFrame = function(name, src) {
+loadDataFrame = async function(name, src) {
     return new Promise(function(resolve, reject) {
 
         var existing = window.document.body.querySelector(`iframe[name="${name}$"`);
